@@ -21,7 +21,7 @@
 import UIKit
 import Foundation
 
-public class DrawerBarButtonItem: UIBarButtonItem {
+open class DrawerBarButtonItem: UIBarButtonItem {
     
     var menuButton: AnimatedMenuButton
     
@@ -34,7 +34,7 @@ public class DrawerBarButtonItem: UIBarButtonItem {
     }
 
     public convenience init(target: AnyObject?, action: Selector) {
-        self.init(target: target, action: action, menuIconColor: UIColor.gray())
+        self.init(target: target, action: action, menuIconColor: UIColor.gray)
     }
 
     public convenience init(target: AnyObject?, action: Selector, menuIconColor: UIColor) {
@@ -53,7 +53,7 @@ public class DrawerBarButtonItem: UIBarButtonItem {
     
     // MARK: - Animations
     
-    public func animateWithPercentVisible(_ percentVisible: CGFloat, drawerSide: DrawerSide) {
+    open func animateWithPercentVisible(_ percentVisible: CGFloat, drawerSide: DrawerSide) {
         if let btn = self.customView as? AnimatedMenuButton {
             btn.animateWithPercentVisible(percentVisible, drawerSide: drawerSide)
         }

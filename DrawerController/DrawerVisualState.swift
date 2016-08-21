@@ -93,7 +93,7 @@ public struct DrawerVisualState {
             
             sideDrawerViewController?.view.layer.anchorPoint = anchorPoint
             sideDrawerViewController?.view.layer.shouldRasterize = true
-            sideDrawerViewController?.view.layer.rasterizationScale = UIScreen.main().scale
+            sideDrawerViewController?.view.layer.rasterizationScale = UIScreen.main.scale
             
             var swingingDoorTransform: CATransform3D = CATransform3DIdentity
            

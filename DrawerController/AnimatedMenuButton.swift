@@ -22,7 +22,7 @@ import Foundation
 import QuartzCore
 import UIKit
 
-public class AnimatedMenuButton : UIButton {
+open class AnimatedMenuButton : UIButton {
     
     let top: CAShapeLayer = CAShapeLayer()
     let middle: CAShapeLayer = CAShapeLayer()
@@ -35,20 +35,20 @@ public class AnimatedMenuButton : UIButton {
     
     let shortStroke: CGPath = {
         let path = CGMutablePath()
-        path.moveTo(nil, x: 2, y: 2)
-        path.addLineTo(nil, x: 30 - 2 * 2, y: 2)
+        path.move(to: CGPoint(x: 2, y: 2))
+        path.addLine(to: CGPoint(x: 30 - 2 * 2, y: 2))
         return path
         }()
     
     // MARK: - Initializers
     
     required public init?(coder aDecoder: NSCoder) {
-        self.strokeColor = UIColor.gray()
+        self.strokeColor = UIColor.gray
         super.init(coder: aDecoder)
     }
 
     override convenience init(frame: CGRect) {
-        self.init(frame: frame, strokeColor: UIColor.gray())
+        self.init(frame: frame, strokeColor: UIColor.gray)
     }
     
     init(frame: CGRect, strokeColor: UIColor) {
@@ -67,7 +67,7 @@ public class AnimatedMenuButton : UIButton {
             layer.lineCap = kCALineCapRound
             layer.masksToBounds = true
             
-            let strokingPath = CGPath(copyByStroking: layer.path!, transform: nil, lineWidth: 4, lineCap: .round, lineJoin: .miter, miterLimit: 4)
+            let strokingPath = CGPath(__byStroking: layer.path!, transform: nil, lineWidth: 4, lineCap: .round, lineJoin: .miter, miterLimit: 4)
             
             layer.bounds = (strokingPath?.boundingBoxOfPath)!
             
@@ -89,7 +89,7 @@ public class AnimatedMenuButton : UIButton {
     
     // MARK: - Animations
     
-    public func animateWithPercentVisible(_ percentVisible:CGFloat, drawerSide: DrawerSide) {
+    open func animateWithPercentVisible(_ percentVisible:CGFloat, drawerSide: DrawerSide) {
         
         if drawerSide == DrawerSide.left {
             self.top.anchorPoint = CGPoint(x: 1, y: 0.5)
